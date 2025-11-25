@@ -1,178 +1,272 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Reina Links</title>
+<title>reina links</title>
 
 <style>
     body {
         margin: 0;
         padding: 0;
-        font-family: Arial, sans-serif;
-        /* ব্যাকগ্রাউন্ড ইমেজ: আপনার দেওয়া URL */
-        background: url('https://i.postimg.cc/s2Kh5Wqc/3cdace33d082f6023231d9730fdb0cd6.jpg') no-repeat center/cover;
+        font-family: 'Poppins', sans-serif; /* নতুন ফন্ট যোগ করা হলো */
+        background: url('https://i.postimg.cc/s2kh5wqc/3cdace33d082f6023231d9730fdb0cd6.jpg') no-repeat center/cover;
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
         background-attachment: fixed; 
+        overflow-x: hidden; /* হরিজন্টাল স্ক্রলবার সরানো */
+        position: relative;
     }
+
+    /* গ্লোবাল ফন্ট ইম্পোর্ট */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
     .card {
         width: 90%;
-        /* ওয়েবসাইটের সাইজ আরো বড় করা */
         max-width: 500px; 
-        /* ছবির সাথে মিল রেখে গ্লাস ইফেক্ট */
-        background: rgba(255, 255, 255, 0.15); 
-        backdrop-filter: blur(15px);
-        border-radius: 20px;
-        padding-bottom: 25px;
+        background: rgba(255, 255, 255, 0.08); /* আরও ট্রান্সপারেন্ট গ্লাস ইফেক্ট */
+        backdrop-filter: blur(20px); /* ব্লার আরও বাড়ানো হলো */
+        border-radius: 25px; /* বর্ডার রেডিয়াস আরও স্মুথ করা হলো */
+        padding-bottom: 30px; /* প্যাডিং বাড়ানো হলো */
         color: white;
         text-align: center;
-        /* নীলচে গ্লো এবং হালকা বর্ডার */
-        box-shadow: 0 0 40px rgba(78, 172, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.1); 
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        /* ছবির ডেট/লেখা/আইকনের জন্য পজিশনিং সেট করা হলো */
+        box-shadow: 0 0 60px rgba(100, 150, 255, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.15); /* গ্লো আরও প্রমিনেন্ট */
+        border: 1px solid rgba(255, 255, 255, 0.15); /* বর্ডার আরও স subtle */
         position: relative; 
-        overflow: hidden; /* ভেতরের উপাদান যাতে কার্ডের বাইরে না যায় */
+        overflow: hidden; 
+        transform: translateY(0);
+        transition: transform 0.3s ease-out;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
     }
 
     .banner {
         width: 100%;
         height: 180px;
-        /* ছবির মতো করে বাম দিকে কিছুটা অংশ কেটে দেওয়া হলো */
-        border-radius: 0 20px 0 0; 
-        /* কভার ইমেজ (আপনার আগের দেওয়া URL) */
-        background: url('https://i.postimg.cc/sXYHywLd/a12ae2aa1e97334a20566f7eda1d8c35-(1).jpg') no-repeat center/cover;
-        background-position: center top; /* ছবিতে মাথাগুলো ভালোভাবে দেখানোর জন্য */
-        box-shadow: inset 0 -20px 20px rgba(0, 0, 0, 0.3); 
-        /* কভার ফটো আর ব্যাকগ্রাউন্ড মিশিয়ে দেওয়ার চেষ্টা */
-        mix-blend-mode: soft-light; 
+        border-radius: 25px 25px 0 0; /* শুধুমাত্র উপরে রাউন্ডেড করা হলো */
+        background: url('https://i.postimg.cc/sxyhywld/a12ae2aa1e97334a20566f7eda1d8c35-(1).jpg') no-repeat center/cover;
+        background-position: center top;
+        box-shadow: inset 0 -30px 30px rgba(0, 0, 0, 0.5); /* শ্যাডো আরও ডিপ করা হলো */
+        position: relative;
+        overflow: hidden;
+    }
+
+    .banner::before { /* ব্যানার ওভারলে যোগ করা হলো */
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%);
+        z-index: 1;
     }
     
-    /* ছবির মতো কভারের উপরে লেখা এবং আইকনের জন্য নতুন ক্লাস */
     .header-info {
         position: absolute;
-        top: 10px;
-        left: 10px;
+        top: 20px;
+        left: 20px;
         display: flex;
         align-items: center;
         color: white;
-        font-weight: bold;
-        text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
-        z-index: 10; /* কভারের উপরে থাকার জন্য */
+        font-weight: 600;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+        z-index: 10; 
+        font-size: 1.1em;
     }
 
     .header-text {
-        font-size: 16px;
         margin-right: 15px;
+        letter-spacing: 0.5px;
     }
 
     .notification-icon {
-        width: 25px;
-        height: 25px;
-        background-color: #ff5c8a;
+        width: 30px; /* আইকন সাইজ বাড়ানো হলো */
+        height: 30px;
+        background-color: #ff4d88; /* গোলাপি রঙ আরও ভাইব্রেন্ট */
         border-radius: 50%;
         color: white;
-        font-size: 14px;
-        line-height: 25px;
+        font-size: 16px;
+        line-height: 30px;
         text-align: center;
         font-weight: bold;
         border: 2px solid white;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+        animation: pulse 1.5s infinite; /* নোটিফিকেশন আইকনে অ্যানিমেশন */
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
     }
 
 
     .profile {
-        width: 110px;
-        height: 110px;
+        width: 130px; /* প্রোফাইল ইমেজ আরও বড় করা হলো */
+        height: 130px;
         border-radius: 50%;
-        margin-top: -55px;
-        /* বর্ডার কালার */
-        border: 4px solid #48A7FF; 
-        /* প্রোফাইল ইমেজ (আপনার আগের দেওয়া URL) */
-        background: url('https://i.postimg.cc/y8xG9hD1/42a8f0bc43322fae65b89a702dc7e45c.jpg') no-repeat center/cover;
-        background-position: center 30%; /* ছবিতে মুখটা ভালোভাবে দেখানোর জন্য */
+        margin-top: -70px; /* পজিশনিং অ্যাডজাস্ট করা হলো */
+        border: 5px solid #48a7ff; /* বর্ডার আরও মোটা */
+        background: url('https://i.postimg.cc/y8xg9hd1/42a8f0bc43322fae65b89a702dc7e45c.jpg') no-repeat center/cover;
+        background-position: center 30%; 
         margin-left: auto;
         margin-right: auto;
-        box-shadow: 0 0 15px rgba(78, 172, 255, 0.7); 
-        /* ছবির মতো প্রোফাইলটিকে কভারের বাম দিকে সামান্য সরিয়ে দেওয়া */
-        transform: translateX(-25%); 
+        box-shadow: 0 0 25px rgba(78, 172, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.3); /* গ্লো আরও প্রমিনেন্ট */
+        transform: translatex(-20%); /* বাম দিকে সামান্য সরিয়ে দেওয়া */
+        position: relative;
+        z-index: 5;
     }
 
     h2 {
-        margin: 10px 0 0;
-        font-size: 26px;
-        font-weight: bold;
-        text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); 
+        margin: 15px 0 0; /* মার্জিন বাড়ানো হলো */
+        font-size: 32px; /* ফন্ট সাইজ আরও বড় */
+        font-weight: 700; /* ফন্ট ওয়েট বোল্ড করা হলো */
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 8px rgba(78, 172, 255, 0.9); /* শ্যাডো আরও প্রমিনেন্ট */
+        letter-spacing: 1px;
     }
 
     p.username {
-        margin: 5px 0 15px;
-        opacity: 0.8;
+        margin: 5px 0 10px;
+        opacity: 0.9;
         font-weight: 500;
+        font-size: 1.1em;
+        color: #e0e0e0;
     }
     
     p.status-text {
-        margin: 0 0 20px;
+        margin: 0 0 25px; /* মার্জিন বাড়ানো হলো */
         font-style: italic;
-        opacity: 0.9;
+        opacity: 0.85;
+        font-weight: 400;
+        font-size: 1.05em;
+        color: #c0c0c0;
     }
 
     .links {
-        width: 85%;
+        width: 88%; /* লিংক সেকশনের ওয়াইডথ বাড়ানো হলো */
         margin: auto;
-        margin-top: 10px;
+        margin-top: 15px;
     }
 
     .btn {
-        /* ছবির মতো গাঢ় নীলচে/বেগুনী গ্রেডিয়েন্ট */
-        background: linear-gradient(90deg, #1A40FF, #4D23FF); 
-        /* লিংক বাটন গুলো আরেকটু ছোট করা হলো */
-        padding: 12px; 
-        border-radius: 12px;
-        margin: 8px 0; /* মার্জিন কিছুটা কমানো হলো ছবির মতো ঘন দেখাতে */
+        background: linear-gradient(90deg, #2a52be, #6e40d0); /* গ্রেডিয়েন্ট আরও সমৃদ্ধ করা হলো */
+        padding: 15px; /* প্যাডিং বাড়ানো হলো */
+        border-radius: 15px; /* বর্ডার রেডিয়াস স্মুথ করা হলো */
+        margin: 10px 0; /* মার্জিন বাড়ানো হলো */
         display: flex;
         align-items: center;
         justify-content: space-between;
-        /* ফন্ট সাইজও কমানো হলো */
-        font-size: 17px; 
+        font-size: 19px; /* ফন্ট সাইজ বাড়ানো হলো */
+        font-weight: 600; /* ফন্ট ওয়েট বোল্ড করা হলো */
         cursor: pointer;
         color: white; 
         text-decoration: none; 
-        transition: transform 0.2s, box-shadow 0.2s;
-        /* নীল বর্ডার এবং শ্যাডো যোগ করা হলো */
-        border: 1px solid rgba(78, 172, 255, 0.5);
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.1); 
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(78, 172, 255, 0.6);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.7), inset 0 0 12px rgba(255, 255, 255, 0.15); /* শ্যাডো আরও প্রমিনেন্ট */
+        position: relative;
+        overflow: hidden;
     }
     
+    .btn::before { /* হোভার ইফেক্টের জন্য একটি ওভারলে */
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        transition: left 0.3s ease;
+    }
+
+    .btn:hover::before {
+        left: 0;
+    }
+
     .btn:hover {
-        transform: scale(1.03);
-        box-shadow: 0 8px 20px rgba(78, 172, 255, 0.7); 
+        transform: scale(1.04) translateY(-2px); /* হোভারে সামান্য উপরে উঠবে */
+        box-shadow: 0 10px 30px rgba(78, 172, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.3); 
     }
 
     .btn img.icon {
-        width: 30px; /* আইকন সাইজও সামান্য কমানো */
-        height: 30px;
-        border-radius: 7px;
+        width: 35px; /* আইকন সাইজ বাড়ানো হলো */
+        height: 35px;
+        border-radius: 8px;
         object-fit: cover;
-        /* ছবির মতো হালকা নীল বর্ডার */
-        border: 2px solid #5C9EFF; 
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7); 
+        border: 2px solid #75baff; /* বর্ডার কালার আরও উজ্জ্বল */
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+        transition: transform 0.2s ease;
+    }
+
+    .btn:hover img.icon {
+        transform: scale(1.1);
     }
 
     .heart {
-        color: #ff5c8a;
-        font-size: 20px;
+        color: #ff6e9e; /* হার্ট কালার আরও ভাইব্রেন্ট */
+        font-size: 24px; /* হার্ট সাইজ বাড়ানো হলো */
+        animation: beat 1.5s infinite; /* হার্টে অ্যানিমেশন */
+    }
+
+    @keyframes beat {
+        0%, 100% { transform: scale(1); }
+        25% { transform: scale(1.2); }
+        50% { transform: scale(1); }
+        75% { transform: scale(1.2); }
     }
 
     .footer {
-        margin-top: 25px;
-        font-size: 14px;
-        opacity: 0.8;
+        margin-top: 30px; /* মার্জিন বাড়ানো হলো */
+        font-size: 15px; /* ফন্ট সাইজ সামান্য বাড়ানো হলো */
+        opacity: 0.7;
         font-weight: 500;
+        color: #c0c0c0;
+        letter-spacing: 0.5px;
     }
+
+    /* রেসপন্সিভনেস */
+    @media (max-width: 600px) {
+        .card {
+            width: 95%;
+            margin: 20px 0;
+        }
+        h2 {
+            font-size: 28px;
+        }
+        .profile {
+            width: 110px;
+            height: 110px;
+            margin-top: -60px;
+        }
+        .btn {
+            font-size: 16px;
+            padding: 12px;
+        }
+        .btn img.icon {
+            width: 30px;
+            height: 30px;
+        }
+        .heart {
+            font-size: 20px;
+        }
+        .header-info {
+            font-size: 1em;
+            top: 15px;
+            left: 15px;
+        }
+        .notification-icon {
+            width: 25px;
+            height: 25px;
+            font-size: 14px;
+            line-height: 25px;
+        }
+    }
+
 </style>
 </head>
 <body>
@@ -180,58 +274,44 @@
 <div class="card">
     
     <div class="header-info">
-        <span class="header-text">Today</span>
+        <span class="header-text">today</span>
         <span class="notification-icon">5</span>
     </div>
     
-    <div class="banner" style="background-image: url('https://i.postimg.cc/sXYHywLd/a12ae2aa1e97334a20566f7eda1d8c35-(1).jpg');"></div>
+    <div class="banner" style="background-image: url('https://i.postimg.cc/sxyhywld/a12ae2aa1e97334a20566f7eda1d8c35-(1).jpg');"></div>
     
-    <div class="profile" style="background-image: url('https://i.postimg.cc/y8xG9hD1/42a8f0bc43322fae65b89a702dc7e45c.jpg');"></div>
+    <div class="profile" style="background-image: url('https://i.postimg.cc/y8xg9hd1/42a8f0bc43322fae65b89a702dc7e45c.jpg');"></div>
 
-    <h2>Reina ˚✧₊⁎</h2>
-    <p class="username">@reinachan0111</p>
-    <p class="status-text">Living like an NPC</p>
+    <h2>reina ˚✧₊⁎</h2>
+    <p class="username">reinachan0111</p>
+    <p class="status-text">living like an npc</p>
 
     <div class="links">
 
-        <a class="btn" href="YOUR_TIKTOK_LINK" target="_blank" rel="noopener noreferrer">
-            <div style="display:flex; align-items:center; gap:10px;">
-                <img class="icon" src="https://i.postimg.cc/t4gJbLg9/tiktok.png" alt="TikTok Icon" /> Tiktok
+        <a class="btn" href="your_facebook_link" target="_blank" rel="noopener noreferrer">
+            <div style="display:flex; align-items:center; gap:12px;">
+                <img class="icon" src="https://i.postimg.cc/c4kvhkfr/89d4d0c0ead80b064fa2a7102120ac2a.jpg" alt="facebook icon" /> facebook
             </div>
             <span class="heart">❤</span>
         </a>
 
-        <a class="btn" href="YOUR_YOUTUBE_LINK" target="_blank" rel="noopener noreferrer">
-            <div style="display:flex; align-items:center; gap:10px;">
-                <img class="icon" src="https://i.postimg.cc/TY1v8gD9/youtube.png" alt="YouTube Icon" /> Youtube
+        <a class="btn" href="your_tiktok_link" target="_blank" rel="noopener noreferrer">
+            <div style="display:flex; align-items:center; gap:12px;">
+                <img class="icon" src="https://i.postimg.cc/8k488zwf/248b9ac7c4a620e95f39396782678b18.jpg" alt="tiktok icon" /> tiktok
             </div>
             <span class="heart">❤</span>
         </a>
 
-        <a class="btn" href="YOUR_INSTAGRAM_LINK" target="_blank" rel="noopener noreferrer">
-            <div style="display:flex; align-items:center; gap:10px;">
-                <img class="icon" src="https://i.postimg.cc/50R0bJvP/instagram.png" alt="Instagram Icon" /> Instagram
+        <a class="btn" href="your_youtube_link" target="_blank" rel="noopener noreferrer">
+            <div style="display:flex; align-items:center; gap:12px;">
+                <img class="icon" src="https://i.postimg.cc/ydhm8vg7/c007c0b15820344e3944a64724ae27e5.jpg" alt="youtube icon" /> youtube
             </div>
             <span class="heart">❤</span>
         </a>
         
-        <a class="btn" href="YOUR_ANIME_LIST_LINK" target="_blank" rel="noopener noreferrer">
-            <div style="display:flex; align-items:center; gap:10px;">
-                <img class="icon" src="https://i.postimg.cc/Hxf4Y41X/mal.jpg" alt="Anime List Icon" /> My Anime List
-            </div>
-            <span class="heart">❤</span>
-        </a>
-
-        <a class="btn" href="YOUR_COFFEE_LINK" target="_blank" rel="noopener noreferrer">
-            <div style="display:flex; align-items:center; gap:10px;">
-                <img class="icon" src="https://i.postimg.cc/pT3Y321D/coffee.jpg" alt="Coffee Icon" /> Treat me to a coffee
-            </div>
-            <span class="heart">❤</span>
-        </a>
-
     </div>
 
-    <p class="footer">Made by Reina *-*</p>
+    <p class="footer">made by reina *-*</p>
 </div>
 
 </body>
