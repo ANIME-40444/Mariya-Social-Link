@@ -19,6 +19,8 @@
         background-attachment: fixed; 
         overflow-x: hidden;
         position: relative;
+        /* ব্যাকগ্রাউন্ড আরও বড় করার জন্য */
+        background-size: 100% 100%; /* ব্যাকগ্রাউন্ডকে পুরোপুরি স্ট্রেচ করে দেওয়া হলো */
     }
 
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -39,6 +41,7 @@
         overflow: hidden; 
         transform: translateY(0);
         transition: transform 0.3s ease-out;
+        z-index: 10; /* কার্ডটিকে সামনে রাখা হলো */
     }
 
     .card:hover {
@@ -68,45 +71,10 @@
         z-index: 1;
     }
     
+    /* header-info ক্লাসটি সম্পূর্ণরূপে অদৃশ্য করা হলো */
     .header-info {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        display: flex;
-        align-items: center;
-        color: white;
-        font-weight: 600;
-        text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
-        z-index: 10; 
-        font-size: 1.1em;
+        display: none; 
     }
-
-    .header-text {
-        margin-right: 15px;
-        letter-spacing: 0.5px;
-    }
-
-    .notification-icon {
-        width: 30px; 
-        height: 30px;
-        background-color: #ff4d88; 
-        border-radius: 50%;
-        color: white;
-        font-size: 16px;
-        line-height: 30px;
-        text-align: center;
-        font-weight: bold;
-        border: 2px solid white;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-        animation: pulse 1.5s infinite; 
-    }
-
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
-    }
-
 
     .profile {
         width: 130px; 
@@ -264,17 +232,6 @@
         .heart {
             font-size: 20px;
         }
-        .header-info {
-            font-size: 1em;
-            top: 15px;
-            left: 15px;
-        }
-        .notification-icon {
-            width: 25px;
-            height: 25px;
-            font-size: 14px;
-            line-height: 25px;
-        }
     }
 
 </style>
@@ -282,11 +239,6 @@
 <body>
 
 <div class="card">
-    
-    <div class="header-info">
-        <span class="header-text">today</span>
-        <span class="notification-icon">5</span>
-    </div>
     
     <div class="banner" style="background-image: url('https://i.postimg.cc/HnHW3YKK/377a7bfdaba1fdab96ee319f36d8fd73.jpg');"></div>
     
