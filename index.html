@@ -9,31 +9,32 @@
     body {
         margin: 0;
         padding: 0;
-        font-family: 'Poppins', sans-serif; /* নতুন ফন্ট যোগ করা হলো */
-        background: url('https://i.postimg.cc/s2kh5wqc/3cdace33d082f6023231d9730fdb0cd6.jpg') no-repeat center/cover;
+        font-family: 'Poppins', sans-serif;
+        /* নতুন ব্যাকগ্রাউন্ড ইমেজ */
+        background: url('https://i.postimg.cc/s2NZnh9c/3994842677ab0ff90d07c05633957e21.jpg') no-repeat center/cover;
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
         background-attachment: fixed; 
-        overflow-x: hidden; /* হরিজন্টাল স্ক্রলবার সরানো */
+        overflow-x: hidden;
         position: relative;
     }
 
-    /* গ্লোবাল ফন্ট ইম্পোর্ট */
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
     .card {
         width: 90%;
         max-width: 500px; 
-        background: rgba(255, 255, 255, 0.08); /* আরও ট্রান্সপারেন্ট গ্লাস ইফেক্ট */
-        backdrop-filter: blur(20px); /* ব্লার আরও বাড়ানো হলো */
-        border-radius: 25px; /* বর্ডার রেডিয়াস আরও স্মুথ করা হলো */
-        padding-bottom: 30px; /* প্যাডিং বাড়ানো হলো */
+        background: rgba(255, 255, 255, 0.08); 
+        backdrop-filter: blur(20px); 
+        border-radius: 25px; 
+        padding-bottom: 30px; 
         color: white;
         text-align: center;
-        box-shadow: 0 0 60px rgba(100, 150, 255, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.15); /* গ্লো আরও প্রমিনেন্ট */
-        border: 1px solid rgba(255, 255, 255, 0.15); /* বর্ডার আরও স subtle */
+        /* গ্লো কালারটি ব্যাকগ্রাউন্ডের সাথে মানানসই করা হলো (হালকা গোলাপি/নীল) */
+        box-shadow: 0 0 60px rgba(255, 100, 200, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.15); 
+        border: 1px solid rgba(255, 255, 255, 0.15); 
         position: relative; 
         overflow: hidden; 
         transform: translateY(0);
@@ -47,22 +48,23 @@
     .banner {
         width: 100%;
         height: 180px;
-        border-radius: 25px 25px 0 0; /* শুধুমাত্র উপরে রাউন্ডেড করা হলো */
-        background: url('https://i.postimg.cc/sxyhywld/a12ae2aa1e97334a20566f7eda1d8c35-(1).jpg') no-repeat center/cover;
-        background-position: center top;
-        box-shadow: inset 0 -30px 30px rgba(0, 0, 0, 0.5); /* শ্যাডো আরও ডিপ করা হলো */
+        border-radius: 25px 25px 0 0;
+        /* নতুন কভার ইমেজ */
+        background: url('https://i.postimg.cc/HnHW3YKK/377a7bfdaba1fdab96ee319f36d8fd73.jpg') no-repeat center/cover;
+        background-position: center bottom; /* ছবিটি ভালোভাবে দেখানোর জন্য */
+        box-shadow: inset 0 -30px 30px rgba(0, 0, 0, 0.7); /* শ্যাডো আরও ডিপ করা হলো */
         position: relative;
         overflow: hidden;
     }
 
-    .banner::before { /* ব্যানার ওভারলে যোগ করা হলো */
+    .banner::before { 
         content: '';
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%);
+        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%); /* ওভারলে ডিপার করা হলো */
         z-index: 1;
     }
     
@@ -85,9 +87,9 @@
     }
 
     .notification-icon {
-        width: 30px; /* আইকন সাইজ বাড়ানো হলো */
+        width: 30px; 
         height: 30px;
-        background-color: #ff4d88; /* গোলাপি রঙ আরও ভাইব্রেন্ট */
+        background-color: #ff4d88; 
         border-radius: 50%;
         color: white;
         font-size: 16px;
@@ -96,7 +98,7 @@
         font-weight: bold;
         border: 2px solid white;
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-        animation: pulse 1.5s infinite; /* নোটিফিকেশন আইকনে অ্যানিমেশন */
+        animation: pulse 1.5s infinite; 
     }
 
     @keyframes pulse {
@@ -107,26 +109,30 @@
 
 
     .profile {
-        width: 130px; /* প্রোফাইল ইমেজ আরও বড় করা হলো */
+        width: 130px; 
         height: 130px;
         border-radius: 50%;
-        margin-top: -70px; /* পজিশনিং অ্যাডজাস্ট করা হলো */
-        border: 5px solid #48a7ff; /* বর্ডার আরও মোটা */
-        background: url('https://i.postimg.cc/y8xg9hd1/42a8f0bc43322fae65b89a702dc7e45c.jpg') no-repeat center/cover;
+        margin-top: -70px; 
+        /* বর্ডার কালারটি প্রোফাইলের চুলের রঙের সাথে মিলানো হলো (গোলাপি) */
+        border: 5px solid #ff99cc; 
+        /* নতুন প্রোফাইল ইমেজ */
+        background: url('https://i.postimg.cc/y8xG9hD1/42a8f0bc43322fae65b89a702dc7e45c.jpg') no-repeat center/cover;
         background-position: center 30%; 
         margin-left: auto;
         margin-right: auto;
-        box-shadow: 0 0 25px rgba(78, 172, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.3); /* গ্লো আরও প্রমিনেন্ট */
-        transform: translatex(-20%); /* বাম দিকে সামান্য সরিয়ে দেওয়া */
+        /* গ্লো কালার প্রোফাইলের সাথে মানানসই করা হলো */
+        box-shadow: 0 0 25px rgba(255, 100, 200, 0.8), 0 0 15px rgba(255, 255, 255, 0.3); 
+        transform: translatex(-20%); 
         position: relative;
         z-index: 5;
     }
 
     h2 {
-        margin: 15px 0 0; /* মার্জিন বাড়ানো হলো */
-        font-size: 32px; /* ফন্ট সাইজ আরও বড় */
-        font-weight: 700; /* ফন্ট ওয়েট বোল্ড করা হলো */
-        text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 8px rgba(78, 172, 255, 0.9); /* শ্যাডো আরও প্রমিনেন্ট */
+        margin: 15px 0 0; 
+        font-size: 32px; 
+        font-weight: 700; 
+        /* টেক্সট শ্যাডো প্রোফাইল গ্লোর সাথে মানানসই */
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 8px rgba(255, 150, 220, 0.9); 
         letter-spacing: 1px;
     }
 
@@ -139,7 +145,7 @@
     }
     
     p.status-text {
-        margin: 0 0 25px; /* মার্জিন বাড়ানো হলো */
+        margin: 0 0 25px; 
         font-style: italic;
         opacity: 0.85;
         font-weight: 400;
@@ -148,32 +154,34 @@
     }
 
     .links {
-        width: 88%; /* লিংক সেকশনের ওয়াইডথ বাড়ানো হলো */
+        width: 88%; 
         margin: auto;
         margin-top: 15px;
     }
 
     .btn {
-        background: linear-gradient(90deg, #2a52be, #6e40d0); /* গ্রেডিয়েন্ট আরও সমৃদ্ধ করা হলো */
-        padding: 15px; /* প্যাডিং বাড়ানো হলো */
-        border-radius: 15px; /* বর্ডার রেডিয়াস স্মুথ করা হলো */
-        margin: 10px 0; /* মার্জিন বাড়ানো হলো */
+        /* গ্রেডিয়েন্ট নতুন থিমের সাথে মানানসই (গোলাপি/বেগুনী) */
+        background: linear-gradient(90deg, #993399, #6633cc); 
+        padding: 15px; 
+        border-radius: 15px; 
+        margin: 10px 0; 
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-size: 19px; /* ফন্ট সাইজ বাড়ানো হলো */
-        font-weight: 600; /* ফন্ট ওয়েট বোল্ড করা হলো */
+        font-size: 19px; 
+        font-weight: 600; 
         cursor: pointer;
         color: white; 
         text-decoration: none; 
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border: 1px solid rgba(78, 172, 255, 0.6);
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.7), inset 0 0 12px rgba(255, 255, 255, 0.15); /* শ্যাডো আরও প্রমিনেন্ট */
+        /* বর্ডার কালার নতুন থিমের সাথে মানানসই */
+        border: 1px solid rgba(255, 150, 220, 0.6);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.7), inset 0 0 12px rgba(255, 255, 255, 0.15); 
         position: relative;
         overflow: hidden;
     }
     
-    .btn::before { /* হোভার ইফেক্টের জন্য একটি ওভারলে */
+    .btn::before { 
         content: '';
         position: absolute;
         top: 0;
@@ -189,16 +197,18 @@
     }
 
     .btn:hover {
-        transform: scale(1.04) translateY(-2px); /* হোভারে সামান্য উপরে উঠবে */
-        box-shadow: 0 10px 30px rgba(78, 172, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.3); 
+        transform: scale(1.04) translateY(-2px); 
+        /* হোভার শ্যাডো নতুন থিমের সাথে মানানসই */
+        box-shadow: 0 10px 30px rgba(255, 100, 200, 0.8), 0 0 20px rgba(255, 255, 255, 0.3); 
     }
 
     .btn img.icon {
-        width: 35px; /* আইকন সাইজ বাড়ানো হলো */
+        width: 35px; 
         height: 35px;
         border-radius: 8px;
         object-fit: cover;
-        border: 2px solid #75baff; /* বর্ডার কালার আরও উজ্জ্বল */
+        /* আইকন বর্ডার নতুন থিমের সাথে মানানসই */
+        border: 2px solid #ffb3e6; 
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
         transition: transform 0.2s ease;
     }
@@ -208,9 +218,9 @@
     }
 
     .heart {
-        color: #ff6e9e; /* হার্ট কালার আরও ভাইব্রেন্ট */
-        font-size: 24px; /* হার্ট সাইজ বাড়ানো হলো */
-        animation: beat 1.5s infinite; /* হার্টে অ্যানিমেশন */
+        color: #ff6e9e; 
+        font-size: 24px; 
+        animation: beat 1.5s infinite; 
     }
 
     @keyframes beat {
@@ -221,8 +231,8 @@
     }
 
     .footer {
-        margin-top: 30px; /* মার্জিন বাড়ানো হলো */
-        font-size: 15px; /* ফন্ট সাইজ সামান্য বাড়ানো হলো */
+        margin-top: 30px; 
+        font-size: 15px; 
         opacity: 0.7;
         font-weight: 500;
         color: #c0c0c0;
@@ -278,9 +288,9 @@
         <span class="notification-icon">5</span>
     </div>
     
-    <div class="banner" style="background-image: url('https://i.postimg.cc/sxyhywld/a12ae2aa1e97334a20566f7eda1d8c35-(1).jpg');"></div>
+    <div class="banner" style="background-image: url('https://i.postimg.cc/HnHW3YKK/377a7bfdaba1fdab96ee319f36d8fd73.jpg');"></div>
     
-    <div class="profile" style="background-image: url('https://i.postimg.cc/y8xg9hd1/42a8f0bc43322fae65b89a702dc7e45c.jpg');"></div>
+    <div class="profile" style="background-image: url('https://i.postimg.cc/y8xG9hD1/42a8f0bc43322fae65b89a702dc7e45c.jpg');"></div>
 
     <h2>reina ˚✧₊⁎</h2>
     <p class="username">reinachan0111</p>
@@ -290,21 +300,21 @@
 
         <a class="btn" href="your_facebook_link" target="_blank" rel="noopener noreferrer">
             <div style="display:flex; align-items:center; gap:12px;">
-                <img class="icon" src="https://i.postimg.cc/c4kvhkfr/89d4d0c0ead80b064fa2a7102120ac2a.jpg" alt="facebook icon" /> facebook
+                <img class="icon" src="https://i.postimg.cc/c4kVHkFr/89d4d0c0ead80b064fa2a7102120ac2a.jpg" alt="facebook icon" /> facebook
             </div>
             <span class="heart">❤</span>
         </a>
 
         <a class="btn" href="your_tiktok_link" target="_blank" rel="noopener noreferrer">
             <div style="display:flex; align-items:center; gap:12px;">
-                <img class="icon" src="https://i.postimg.cc/8k488zwf/248b9ac7c4a620e95f39396782678b18.jpg" alt="tiktok icon" /> tiktok
+                <img class="icon" src="https://i.postimg.cc/8k488zWf/248b9ac7c4a620e95f39396782678b18.jpg" alt="tiktok icon" /> tiktok
             </div>
             <span class="heart">❤</span>
         </a>
 
         <a class="btn" href="your_youtube_link" target="_blank" rel="noopener noreferrer">
             <div style="display:flex; align-items:center; gap:12px;">
-                <img class="icon" src="https://i.postimg.cc/ydhm8vg7/c007c0b15820344e3944a64724ae27e5.jpg" alt="youtube icon" /> youtube
+                <img class="icon" src="https://i.postimg.cc/ydhM8VG7/c007c0b15820344e3944a64724ae27e5.jpg" alt="youtube icon" /> youtube
             </div>
             <span class="heart">❤</span>
         </a>
