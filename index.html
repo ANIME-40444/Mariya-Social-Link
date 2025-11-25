@@ -115,11 +115,29 @@
     p.status-text {
         margin: 0 0 25px; 
         font-style: italic;
-        opacity: 0.85;
+        opacity: 1; /* অপাসিটি বাড়ানো হলো গ্লো এর জন্য */
         font-weight: 400;
         font-size: 1.05em;
         color: #c0c0c0;
+        
+        /* নতুন: সবুজ গ্লো এবং পালস ইফেক্ট */
+        color: #00ff00; /* প্রাথমিক সবুজ রঙ */
+        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+        animation: green-pulse 2s infinite alternate; /* সবুজ পালস অ্যানিমেশন */
     }
+    
+    /* সবুজ পালস @keyframes */
+    @keyframes green-pulse {
+        0% {
+            opacity: 0.8;
+            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+        }
+        100% {
+            opacity: 1;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+        }
+    }
+
 
     .links {
         width: 88%; 
@@ -201,10 +219,27 @@
     .footer {
         margin-top: 30px; 
         font-size: 15px; 
-        opacity: 0.7;
+        opacity: 1; /* অপাসিটি বাড়ানো হলো গ্লো এর জন্য */
         font-weight: 500;
         color: #c0c0c0;
         letter-spacing: 0.5px;
+        
+        /* নতুন: লাল গ্লো এবং ব্লিংক ইফেক্ট */
+        color: #ff0000; /* প্রাথমিক লাল রঙ */
+        text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+        animation: red-blink 1s infinite; /* লাল ব্লিংক অ্যানিমেশন */
+    }
+
+    /* লাল ব্লিংক @keyframes */
+    @keyframes red-blink {
+        0%, 100% {
+            opacity: 1;
+            text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+        }
+        50% {
+            opacity: 0.3; /* মাঝে মাঝে হালকা হয়ে যাবে */
+            text-shadow: none;
+        }
     }
 
     /* রেসপন্সিভনেস */
