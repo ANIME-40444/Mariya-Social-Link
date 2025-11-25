@@ -10,7 +10,7 @@
         margin: 0;
         padding: 0;
         font-family: Arial, sans-serif;
-        /* ব্যাকগ্রাউন্ড ইমেজ: আপনার দেওয়া URL (আগের কোড অনুযায়ী) */
+        /* ব্যাকগ্রাউন্ড ইমেজ: আপনার দেওয়া URL */
         background: url('https://i.postimg.cc/s2Kh5Wqc/3cdace33d082f6023231d9730fdb0cd6.jpg') no-repeat center/cover;
         display: flex;
         justify-content: center;
@@ -21,7 +21,8 @@
 
     .card {
         width: 90%;
-        max-width: 400px;
+        /* ওয়েবসাইটের সাইজ আরো বড় করা */
+        max-width: 500px; 
         /* ছবির সাথে মিল রেখে গ্লাস ইফেক্ট */
         background: rgba(255, 255, 255, 0.15); 
         backdrop-filter: blur(15px);
@@ -32,16 +33,56 @@
         /* নীলচে গ্লো এবং হালকা বর্ডার */
         box-shadow: 0 0 40px rgba(78, 172, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.1); 
         border: 1px solid rgba(255, 255, 255, 0.2);
+        /* ছবির ডেট/লেখা/আইকনের জন্য পজিশনিং সেট করা হলো */
+        position: relative; 
+        overflow: hidden; /* ভেতরের উপাদান যাতে কার্ডের বাইরে না যায় */
     }
 
     .banner {
         width: 100%;
         height: 180px;
+        /* ছবির মতো করে বাম দিকে কিছুটা অংশ কেটে দেওয়া হলো */
+        border-radius: 0 20px 0 0; 
         /* কভার ইমেজ (আপনার আগের দেওয়া URL) */
         background: url('https://i.postimg.cc/sXYHywLd/a12ae2aa1e97334a20566f7eda1d8c35-(1).jpg') no-repeat center/cover;
-        border-radius: 20px 20px 0 0;
-        box-shadow: inset 0 -20px 20px rgba(0, 0, 0, 0.2); 
+        background-position: center top; /* ছবিতে মাথাগুলো ভালোভাবে দেখানোর জন্য */
+        box-shadow: inset 0 -20px 20px rgba(0, 0, 0, 0.3); 
+        /* কভার ফটো আর ব্যাকগ্রাউন্ড মিশিয়ে দেওয়ার চেষ্টা */
+        mix-blend-mode: soft-light; 
     }
+    
+    /* ছবির মতো কভারের উপরে লেখা এবং আইকনের জন্য নতুন ক্লাস */
+    .header-info {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: flex;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+        z-index: 10; /* কভারের উপরে থাকার জন্য */
+    }
+
+    .header-text {
+        font-size: 16px;
+        margin-right: 15px;
+    }
+
+    .notification-icon {
+        width: 25px;
+        height: 25px;
+        background-color: #ff5c8a;
+        border-radius: 50%;
+        color: white;
+        font-size: 14px;
+        line-height: 25px;
+        text-align: center;
+        font-weight: bold;
+        border: 2px solid white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
 
     .profile {
         width: 110px;
@@ -52,9 +93,12 @@
         border: 4px solid #48A7FF; 
         /* প্রোফাইল ইমেজ (আপনার আগের দেওয়া URL) */
         background: url('https://i.postimg.cc/y8xG9hD1/42a8f0bc43322fae65b89a702dc7e45c.jpg') no-repeat center/cover;
+        background-position: center 30%; /* ছবিতে মুখটা ভালোভাবে দেখানোর জন্য */
         margin-left: auto;
         margin-right: auto;
         box-shadow: 0 0 15px rgba(78, 172, 255, 0.7); 
+        /* ছবির মতো প্রোফাইলটিকে কভারের বাম দিকে সামান্য সরিয়ে দেওয়া */
+        transform: translateX(-25%); 
     }
 
     h2 {
@@ -85,13 +129,15 @@
     .btn {
         /* ছবির মতো গাঢ় নীলচে/বেগুনী গ্রেডিয়েন্ট */
         background: linear-gradient(90deg, #1A40FF, #4D23FF); 
-        padding: 14px;
-        border-radius: 14px;
-        margin: 10px 0; /* মার্জিন কিছুটা কমানো হলো ছবির মতো ঘন দেখাতে */
+        /* লিংক বাটন গুলো আরেকটু ছোট করা হলো */
+        padding: 12px; 
+        border-radius: 12px;
+        margin: 8px 0; /* মার্জিন কিছুটা কমানো হলো ছবির মতো ঘন দেখাতে */
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-size: 18px;
+        /* ফন্ট সাইজও কমানো হলো */
+        font-size: 17px; 
         cursor: pointer;
         color: white; 
         text-decoration: none; 
@@ -107,9 +153,9 @@
     }
 
     .btn img.icon {
-        width: 35px;
-        height: 35px;
-        border-radius: 8px;
+        width: 30px; /* আইকন সাইজও সামান্য কমানো */
+        height: 30px;
+        border-radius: 7px;
         object-fit: cover;
         /* ছবির মতো হালকা নীল বর্ডার */
         border: 2px solid #5C9EFF; 
@@ -118,7 +164,7 @@
 
     .heart {
         color: #ff5c8a;
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .footer {
@@ -132,6 +178,12 @@
 <body>
 
 <div class="card">
+    
+    <div class="header-info">
+        <span class="header-text">Today</span>
+        <span class="notification-icon">5</span>
+    </div>
+    
     <div class="banner" style="background-image: url('https://i.postimg.cc/sXYHywLd/a12ae2aa1e97334a20566f7eda1d8c35-(1).jpg');"></div>
     
     <div class="profile" style="background-image: url('https://i.postimg.cc/y8xG9hD1/42a8f0bc43322fae65b89a702dc7e45c.jpg');"></div>
