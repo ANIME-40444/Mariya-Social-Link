@@ -1,238 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Reina Links</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reina • Link in Bio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* Placeholder for the blue/anime background image */
+            background: url('https://i.imgur.com/GzB04oU.png') no-repeat center center fixed; /* Replace with your desired background image URL */
+            background-size: cover;
+            position: relative;
+        }
 
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        /* ব্যাকগ্রাউন্ড ইমেজ: আপনার দেওয়া URL */
-        background: url('https://i.postimg.cc/s2Kh5Wqc/3cdace33d082f6023231d9730fdb0cd6.jpg') no-repeat center/cover;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background-attachment: fixed; 
-    }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            padding: 20px 10px;
+            box-sizing: border-box;
+            text-align: center;
+            z-index: 1;
+        }
 
-    .card {
-        width: 90%;
-        /* ওয়েবসাইটের সাইজ আরো বড় করা */
-        max-width: 500px; 
-        /* ছবির সাথে মিল রেখে গ্লাস ইফেক্ট */
-        background: rgba(255, 255, 255, 0.15); 
-        backdrop-filter: blur(15px);
-        border-radius: 20px;
-        padding-bottom: 25px;
-        color: white;
-        text-align: center;
-        /* নীলচে গ্লো এবং হালকা বর্ডার */
-        box-shadow: 0 0 40px rgba(78, 172, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.1); 
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        /* ছবির ডেট/লেখা/আইকনের জন্য পজিশনিং সেট করা হলো */
-        position: relative; 
-        overflow: hidden; /* ভেতরের উপাদান যাতে কার্ডের বাইরে না যায় */
-    }
+        /* Card-like effect with blue glow */
+        .profile-card {
+            background: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+            backdrop-filter: blur(10px); /* Glassmorphism effect */
+            border-radius: 20px;
+            padding: 10px;
+            box-shadow: 0 0 20px rgba(0, 150, 255, 0.7), 0 0 40px rgba(0, 150, 255, 0.3); /* Blue glowing effect */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-    .banner {
-        width: 100%;
-        height: 180px;
-        /* ছবির মতো করে বাম দিকে কিছুটা অংশ কেটে দেওয়া হলো */
-        border-radius: 0 20px 0 0; 
-        /* কভার ইমেজ (আপনার আগের দেওয়া URL) */
-        background: url('https://i.postimg.cc/sXYHywLd/a12ae2aa1e97334a20566f7eda1d8c35-(1).jpg') no-repeat center/cover;
-        background-position: center top; /* ছবিতে মাথাগুলো ভালোভাবে দেখানোর জন্য */
-        box-shadow: inset 0 -20px 20px rgba(0, 0, 0, 0.3); 
-        /* কভার ফটো আর ব্যাকগ্রাউন্ড মিশিয়ে দেওয়ার চেষ্টা */
-        mix-blend-mode: soft-light; 
-    }
-    
-    /* ছবির মতো কভারের উপরে লেখা এবং আইকনের জন্য নতুন ক্লাস */
-    .header-info {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        display: flex;
-        align-items: center;
-        color: white;
-        font-weight: bold;
-        text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
-        z-index: 10; /* কভারের উপরে থাকার জন্য */
-    }
+        .banner-image {
+            width: 100%;
+            height: 120px; /* Adjust height as needed */
+            background: url('https://i.imgur.com/1Q7J9pA.png') no-repeat center center; /* Placeholder Banner Image */
+            background-size: cover;
+            border-radius: 15px;
+            margin-bottom: -50px; /* Pull profile pic up */
+        }
 
-    .header-text {
-        font-size: 16px;
-        margin-right: 15px;
-    }
+        .profile-info {
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    .notification-icon {
-        width: 25px;
-        height: 25px;
-        background-color: #ff5c8a;
-        border-radius: 50%;
-        color: white;
-        font-size: 14px;
-        line-height: 25px;
-        text-align: center;
-        font-weight: bold;
-        border: 2px solid white;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    }
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff; /* White border around profile pic */
+            box-shadow: 0 0 10px rgba(0, 150, 255, 0.9);
+            margin-bottom: 10px;
+        }
 
+        .username {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin: 5px 0 0;
+        }
 
-    .profile {
-        width: 110px;
-        height: 110px;
-        border-radius: 50%;
-        margin-top: -55px;
-        /* বর্ডার কালার */
-        border: 4px solid #48A7FF; 
-        /* প্রোফাইল ইমেজ (আপনার আগের দেওয়া URL) */
-        background: url('https://i.postimg.cc/y8xG9hD1/42a8f0bc43322fae65b89a702dc7e45c.jpg') no-repeat center/cover;
-        background-position: center 30%; /* ছবিতে মুখটা ভালোভাবে দেখানোর জন্য */
-        margin-left: auto;
-        margin-right: auto;
-        box-shadow: 0 0 15px rgba(78, 172, 255, 0.7); 
-        /* ছবির মতো প্রোফাইলটিকে কভারের বাম দিকে সামান্য সরিয়ে দেওয়া */
-        transform: translateX(-25%); 
-    }
+        .handle {
+            font-size: 0.9em;
+            color: #ccc;
+            margin: 0 0 15px;
+        }
 
-    h2 {
-        margin: 10px 0 0;
-        font-size: 26px;
-        font-weight: bold;
-        text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); 
-    }
+        .bio {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin: 15px 0;
+            padding: 10px;
+            /* Add some visual separation for the bio */
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
 
-    p.username {
-        margin: 5px 0 15px;
-        opacity: 0.8;
-        font-weight: 500;
-    }
-    
-    p.status-text {
-        margin: 0 0 20px;
-        font-style: italic;
-        opacity: 0.9;
-    }
+        .links-section {
+            padding: 10px 0;
+        }
 
-    .links {
-        width: 85%;
-        margin: auto;
-        margin-top: 10px;
-    }
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+        }
 
-    .btn {
-        /* ছবির মতো গাঢ় নীলচে/বেগুনী গ্রেডিয়েন্ট */
-        background: linear-gradient(90deg, #1A40FF, #4D23FF); 
-        /* লিংক বাটন গুলো আরেকটু ছোট করা হলো */
-        padding: 12px; 
-        border-radius: 12px;
-        margin: 8px 0; /* মার্জিন কিছুটা কমানো হলো ছবির মতো ঘন দেখাতে */
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        /* ফন্ট সাইজও কমানো হলো */
-        font-size: 17px; 
-        cursor: pointer;
-        color: white; 
-        text-decoration: none; 
-        transition: transform 0.2s, box-shadow 0.2s;
-        /* নীল বর্ডার এবং শ্যাডো যোগ করা হলো */
-        border: 1px solid rgba(78, 172, 255, 0.5);
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.1); 
-    }
-    
-    .btn:hover {
-        transform: scale(1.03);
-        box-shadow: 0 8px 20px rgba(78, 172, 255, 0.7); 
-    }
+        .link-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
 
-    .btn img.icon {
-        width: 30px; /* আইকন সাইজও সামান্য কমানো */
-        height: 30px;
-        border-radius: 7px;
-        object-fit: cover;
-        /* ছবির মতো হালকা নীল বর্ডার */
-        border: 2px solid #5C9EFF; 
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7); 
-    }
+        .link-content {
+            display: flex;
+            align-items: center;
+        }
 
-    .heart {
-        color: #ff5c8a;
-        font-size: 20px;
-    }
+        .link-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
 
-    .footer {
-        margin-top: 25px;
-        font-size: 14px;
-        opacity: 0.8;
-        font-weight: 500;
-    }
-</style>
+        .heart-icon {
+            color: #ff69b4; /* Pink color for heart */
+            font-size: 1.2em;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            z-index: 1;
+        }
+
+        /* FontAwesome for icons (Need to include FontAwesome CDN for actual icons) */
+        /* Since we can't use a CDN here, I'll use placeholders for the icons */
+        .icon-text::before {
+            content: '🔗'; /* Fallback/Placeholder icon */
+            margin-right: 8px;
+        }
+        
+        /* Custom Icons (You need to replace the image URLs here) */
+        #tiktok-icon { background: url('https://i.imgur.com/KxJ4Pz2.png') no-repeat center center; background-size: cover; }
+        #youtube-icon { background: url('https://i.imgur.com/L1Z0M6m.png') no-repeat center center; background-size: cover; }
+        #instagram-icon { background: url('https://i.imgur.com/Qj0Y9V0.png') no-repeat center center; background-size: cover; }
+        #anime-icon { background: url('https://i.imgur.com/9v8X8tB.png') no-repeat center center; background-size: cover; }
+        #coffee-icon { background: url('https://i.imgur.com/R3N7rN9.png') no-repeat center center; background-size: cover; }
+    </style>
 </head>
 <body>
 
-<div class="card">
-    
-    <div class="header-info">
-        <span class="header-text">Today</span>
-        <span class="notification-icon">5</span>
+    <div class="container">
+        <div class="profile-card">
+            
+            <div class="banner-image"></div>
+            
+            <div class="profile-info">
+                <img src="https://i.imgur.com/C9n4w4P.png" alt="Profile Picture" class="profile-pic"> <h1 class="username">Reina $\circ^{\small{\_}}\circ$</h1>
+                <p class="handle">@reinachan0111</p>
+            </div>
+            
+            <div class="bio">
+                Living like an NPC
+            </div>
+
+            <div class="links-section">
+                <a href="https://tiktok.com/@reinachan0111" class="link-button">
+                    <div class="link-content">
+                        <div class="link-icon" id="tiktok-icon"></div>
+                        <span>TikTok</span>
+                    </div>
+                    <span class="heart-icon">❤️</span>
+                </a>
+
+                <a href="https://youtube.com/@reinachan0111" class="link-button">
+                    <div class="link-content">
+                        <div class="link-icon" id="youtube-icon"></div>
+                        <span>Youtube</span>
+                    </div>
+                    <span class="heart-icon">❤️</span>
+                </a>
+
+                <a href="https://instagram.com/reinachan0111" class="link-button">
+                    <div class="link-content">
+                        <div class="link-icon" id="instagram-icon"></div>
+                        <span>Instagram</span>
+                    </div>
+                    <span class="heart-icon">❤️</span>
+                </a>
+
+                <a href="#" class="link-button">
+                    <div class="link-content">
+                        <div class="link-icon" id="anime-icon"></div>
+                        <span>My Anime List</span>
+                    </div>
+                    <span class="heart-icon">❤️</span>
+                </a>
+
+                <a href="#" class="link-button">
+                    <div class="link-content">
+                        <div class="link-icon" id="coffee-icon"></div>
+                        <span>Treat me to a coffee</span>
+                    </div>
+                    <span class="heart-icon">❤️</span>
+                </a>
+            </div>
+
+        </div>
     </div>
-    
-    <div class="banner" style="background-image: url('https://i.postimg.cc/sXYHywLd/a12ae2aa1e97334a20566f7eda1d8c35-(1).jpg');"></div>
-    
-    <div class="profile" style="background-image: url('https://i.postimg.cc/y8xG9hD1/42a8f0bc43322fae65b89a702dc7e45c.jpg');"></div>
 
-    <h2>Reina ˚✧₊⁎</h2>
-    <p class="username">@reinachan0111</p>
-    <p class="status-text">Living like an NPC</p>
-
-    <div class="links">
-
-        <a class="btn" href="YOUR_TIKTOK_LINK" target="_blank" rel="noopener noreferrer">
-            <div style="display:flex; align-items:center; gap:10px;">
-                <img class="icon" src="https://i.postimg.cc/t4gJbLg9/tiktok.png" alt="TikTok Icon" /> Tiktok
-            </div>
-            <span class="heart">❤</span>
-        </a>
-
-        <a class="btn" href="YOUR_YOUTUBE_LINK" target="_blank" rel="noopener noreferrer">
-            <div style="display:flex; align-items:center; gap:10px;">
-                <img class="icon" src="https://i.postimg.cc/TY1v8gD9/youtube.png" alt="YouTube Icon" /> Youtube
-            </div>
-            <span class="heart">❤</span>
-        </a>
-
-        <a class="btn" href="YOUR_INSTAGRAM_LINK" target="_blank" rel="noopener noreferrer">
-            <div style="display:flex; align-items:center; gap:10px;">
-                <img class="icon" src="https://i.postimg.cc/50R0bJvP/instagram.png" alt="Instagram Icon" /> Instagram
-            </div>
-            <span class="heart">❤</span>
-        </a>
-        
-        <a class="btn" href="YOUR_ANIME_LIST_LINK" target="_blank" rel="noopener noreferrer">
-            <div style="display:flex; align-items:center; gap:10px;">
-                <img class="icon" src="https://i.postimg.cc/Hxf4Y41X/mal.jpg" alt="Anime List Icon" /> My Anime List
-            </div>
-            <span class="heart">❤</span>
-        </a>
-
-        <a class="btn" href="YOUR_COFFEE_LINK" target="_blank" rel="noopener noreferrer">
-            <div style="display:flex; align-items:center; gap:10px;">
-                <img class="icon" src="https://i.postimg.cc/pT3Y321D/coffee.jpg" alt="Coffee Icon" /> Treat me to a coffee
-            </div>
-            <span class="heart">❤</span>
-        </a>
-
+    <div class="footer">
+        Made by Reina $\circ^{\small{\_}}\circ$
     </div>
-
-    <p class="footer">Made by Reina *-*</p>
-</div>
 
 </body>
 </html>
