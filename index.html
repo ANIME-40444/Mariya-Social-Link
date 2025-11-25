@@ -3,46 +3,46 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Maria Links</title>
+<title>Reina Links</title>
 
 <style>
     body {
         margin: 0;
         padding: 0;
         font-family: Arial, sans-serif;
-        /* ছবির ব্যাকগ্রাউন্ডের মতো কালচে-নীল/বেগুনি গ্রেডিয়েন্ট এবং হালকা নকশা */
-        background: radial-gradient(circle at 50% 10%, #2a004f, #000000 70%);
+        /* আপনার দেওয়া ব্যাকগ্রাউন্ড ইমেজ URL */
+        background: url('https://i.postimg.cc/s2Kh5Wqc/3cdace33d082f6023231d9730fdb0cd6.jpg') no-repeat center/cover;
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        /* Optional: Add a subtle overlay to mimic the image's texture */
-        /* background-image: url('https://i.postimg.cc/s2Kh5Wqc/3cdace33d082f6023231d9730fdb0cd6.jpg'); */ 
-        /* Keeping it simple with gradient for better control */
+        /* ব্যাকগ্রাউন্ড ফিক্সড রাখা */
+        background-attachment: fixed; 
     }
 
     .card {
         width: 90%;
         max-width: 400px;
-        /* ছবির সাথে মিল রেখে নীলচে ব্লার এবং সেমি-ট্রান্সপারেন্ট ব্যাকগ্রাউন্ড */
-        background: rgba(0, 0, 0, 0.4); 
+        /* ছবির সাথে মিল রেখে হালকা ট্রান্সপারেন্ট গ্লাস ইফেক্ট */
+        background: rgba(255, 255, 255, 0.15); 
         backdrop-filter: blur(15px);
         border-radius: 20px;
         padding-bottom: 25px;
         color: white;
         text-align: center;
-        /* নীলচে লাইটিং এফেক্ট */
-        box-shadow: 0 0 50px rgba(78, 172, 255, 0.45), inset 0 0 10px rgba(255, 255, 255, 0.1); 
-        border: 1px solid rgba(78, 172, 255, 0.3);
+        /* নীলচে গ্লো এবং হালকা বর্ডার */
+        box-shadow: 0 0 40px rgba(78, 172, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.1); 
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .banner {
         width: 100%;
         height: 180px;
-        /* আপনার দেওয়া কভার ইমেজ URL */
-        background: url('https://i.postimg.cc/sXYHywLd/a12ae2aa1e97334a20566f7eda1d8c35-(1).jpg') no-repeat center/cover;
+        /* ছবি থেকে নেওয়া কভার ইমেজ */
+        background: url('https://i.postimg.cc/mD83B7Rk/cover-image-reina.jpg') no-repeat center/cover;
         border-radius: 20px 20px 0 0;
-        box-shadow: inset 0 -20px 20px rgba(0, 0, 0, 0.3); /* নিচের দিকে হালকা শ্যাডো */
+        /* হালকা ভিতরের শ্যাডো */
+        box-shadow: inset 0 -20px 20px rgba(0, 0, 0, 0.2); 
     }
 
     .profile {
@@ -50,30 +50,31 @@
         height: 110px;
         border-radius: 50%;
         margin-top: -55px;
-        /* ছবিতে থাকা বর্ডার কালারের মতো */
+        /* ছবির বর্ডার কালার */
         border: 4px solid #48A7FF; 
-        /* আপনার দেওয়া প্রোফাইল ইমেজ URL */
-        background: url('https://i.postimg.cc/y8xG9hD1/42a8f0bc43322fae65b89a702dc7e45c.jpg') no-repeat center/cover;
+        /* ছবি থেকে নেওয়া প্রোফাইল ইমেজ */
+        background: url('https://i.postimg.cc/3w2X0d8T/profile-image-reina.jpg') no-repeat center/cover;
         margin-left: auto;
         margin-right: auto;
         /* প্রোফাইল ইমেজে হালকা নীল শ্যাডো */
-        box-shadow: 0 0 15px rgba(78, 172, 255, 0.6); 
+        box-shadow: 0 0 15px rgba(78, 172, 255, 0.7); 
     }
 
     h2 {
         margin: 10px 0 0;
         font-size: 26px;
-        /* টেক্সট এ হালকা শ্যাডো */
-        text-shadow: 0 0 5px rgba(78, 172, 255, 0.5); 
+        /* নামের পাশে চিহ্ন ধরে নিলাম */
+        font-weight: bold;
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); 
     }
 
     p.username {
         margin: 5px 0 15px;
         opacity: 0.8;
-        font-weight: bold;
+        font-weight: 500;
     }
     
-    p.npc-text {
+    p.status-text {
         margin: 0 0 20px;
         font-style: italic;
         opacity: 0.9;
@@ -87,7 +88,7 @@
 
     .btn {
         /* ছবির মতো নীলচে/বেগুনী গ্রেডিয়েন্ট */
-        background: linear-gradient(90deg, #007bff, #4d23ff); 
+        background: linear-gradient(90deg, #1A75FF, #664AFF); 
         padding: 14px;
         border-radius: 14px;
         margin: 15px 0;
@@ -96,15 +97,17 @@
         justify-content: space-between;
         font-size: 18px;
         cursor: pointer;
+        color: white; /* নিশ্চিত করার জন্য */
+        text-decoration: none; /* নিশ্চিত করার জন্য */
         transition: transform 0.2s, box-shadow 0.2s;
-        /* বাটন এর জন্য হালকা গ্লো */
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); 
+        /* বাটন এর জন্য হালকা শ্যাডো */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
     }
     
-    /* বাটন হোভার এফেক্ট */
     .btn:hover {
         transform: scale(1.03);
-        box-shadow: 0 8px 20px rgba(78, 172, 255, 0.4); /* হোভারে নীল গ্লো */
+        /* হোভারে নীল গ্লো */
+        box-shadow: 0 8px 20px rgba(78, 172, 255, 0.6); 
     }
 
     .btn img.icon {
@@ -113,58 +116,59 @@
         border-radius: 8px;
         /* আইকন এর জন্য ছোট শ্যাডো */
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+        object-fit: cover;
     }
 
     .heart {
         color: #ff5c8a;
         font-size: 22px;
-        cursor: default;
     }
 
     .footer {
         margin-top: 25px;
         font-size: 14px;
-        opacity: 0.7;
-        text-shadow: 0 0 2px black;
+        opacity: 0.8;
+        font-weight: 500;
     }
 </style>
 </head>
 <body>
 
 <div class="card">
-    <div class="banner"></div>
-    <div class="profile"></div>
+    <div class="banner" style="background-image: url('https://i.postimg.cc/sXYHywLd/a12ae2aa1e97334a20566f7eda1d8c35-(1).jpg');"></div>
+    
+    <div class="profile" style="background-image: url('https://i.postimg.cc/y8xG9hD1/42a8f0bc43322fae65b89a702dc7e45c.jpg');"></div>
 
     <h2>Reina ˚✧₊⁎</h2>
     <p class="username">@reinachan0111</p>
-    <p class="npc-text">Living like an NPC</p>
+    <p class="status-text">Living like an NPC</p>
 
     <div class="links">
 
-        <a class="btn" href="https://www.tiktok.com/@cristine.dapilos" target="_blank" rel="noopener noreferrer">
+        <a class="btn" href="YOUR_TIKTOK_LINK" target="_blank" rel="noopener noreferrer">
             <div style="display:flex; align-items:center; gap:10px;">
                 <img class="icon" src="https://i.postimg.cc/t4gJbLg9/tiktok.png" alt="TikTok Icon" /> Tiktok
             </div>
             <span class="heart">❤</span>
         </a>
 
-        <a class="btn" href="YOUTUBE_LINK_HERE" target="_blank" rel="noopener noreferrer">
+        <a class="btn" href="YOUR_YOUTUBE_LINK" target="_blank" rel="noopener noreferrer">
             <div style="display:flex; align-items:center; gap:10px;">
                 <img class="icon" src="https://i.postimg.cc/TY1v8gD9/youtube.png" alt="YouTube Icon" /> YouTube
             </div>
             <span class="heart">❤</span>
         </a>
 
-        <a class="btn" href="https://www.facebook.com/cristine.dapilos" target="_blank" rel="noopener noreferrer">
+        <a class="btn" href="YOUR_INSTAGRAM_LINK" target="_blank" rel="noopener noreferrer">
             <div style="display:flex; align-items:center; gap:10px;">
-                <img class="icon" src="https://i.postimg.cc/85z1X2tL/facebook.png" alt="Facebook Icon" /> Facebook
+                <img class="icon" src="https://i.postimg.cc/85z1X2tL/facebook.png" alt="Instagram Icon" /> Instagram
             </div>
             <span class="heart">❤</span>
         </a>
 
     </div>
 
-    <p class="footer">Made By JISAN KHAN</p>
+    <p class="footer">Made by Reina *-*</p>
 </div>
 
 </body>
